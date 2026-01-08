@@ -39,11 +39,11 @@ Rust offers two primary TLS backends for HTTP clients:
 
 | Backend | Description | Trade-offs |
 |---------|-------------|------------|
-| **rustls** | Pure-Rust TLS implementation | Memory-safe, no C dependencies, modern protocols only (TLS 1.2+), smaller attack surface |
+| **rustls** | Rust TLS implementation | Memory-safe, modern protocols only (TLS 1.2+), smaller attack surface |
 | **native-tls** | Platform TLS (OpenSSL/SChannel/Security.framework) | System certificate stores, legacy protocol support, platform-dependent behavior |
 
 **Why rustls:** This guide focuses on rustls because:
-- Memory safety guarantees (no C dependencies)
+- Memory safety guarantees (C dependencies limited to performance optimizied code or to dedicated crypto implementations like aws-lc-rs, ring, etc.)
 - Consistent behavior across platforms
 - Modern TLS 1.2/1.3 only (removes legacy attack vectors)
 - Fine-grained control via Rust APIs
