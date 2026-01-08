@@ -1,0 +1,35 @@
+[package]
+name = "reqwest-tls-proxy-demo"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <you@example.com>"]
+description = "Console demo app showcasing reqwest with proxy, optional TLS pinning, and mutual TLS (PEM) using rustls."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+anyhow = "1"
+base64 = "0.22"
+clap = { version = "4", features = ["derive", "env"] }
+reqwest = { version = "0.12", default-features = false, features = [
+    "rustls-tls",
+    "http2",
+    "json",
+    "gzip",
+    "stream",
+] }
+rustls = { version = "0.23" }
+rustls-pemfile = "1"
+sha2 = "0.10"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "fs"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+x509-parser = { version = "0.15", default-features = false, features = ["verify"] }
+bytes = "1"
+futures-util = "0.3"
+webpki-roots = "1"
+url = "2"
+rustls-native-certs = "0.7"
+tokio-rustls = "0.26"
+
+[dev-dependencies]
+assert_cmd = "2"
