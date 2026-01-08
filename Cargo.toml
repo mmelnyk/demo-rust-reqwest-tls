@@ -17,7 +17,7 @@ reqwest = { version = "0.12", default-features = false, features = [
     "gzip",
     "stream",
 ] }
-rustls = { version = "0.23" }
+rustls = { version = "0.23", features = ["aws_lc_rs"]}
 rustls-pemfile = "1"
 sha2 = "0.10"
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "fs"] }

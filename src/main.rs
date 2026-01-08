@@ -22,12 +22,11 @@ async fn main() -> anyhow::Result<()> {
 
     init_tracing(args.verbose);
 
-    // Install a default crypto provider for rustls 0.23 (using ring backend).
+    // Install a default crypto provider for rustls 0.23 (using aws-lc-rs backend).
     // This is required when using rustls directly.
-    rustls::crypto::ring::default_provider()
+    rustls::crypto::aws_lc_rs::default_provider()
         .install_default()
-        .expect("failed to install rustls ring crypto provider");
-
+        .expect("failed to install rustls aws-lc-rs crypto provider");
     info!(target: "app", url = %args.url, "Starting request");
 
     let state = TlsState::default();
